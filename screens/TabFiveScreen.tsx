@@ -7,8 +7,9 @@ import { Text, View } from '../components/Themed';
 export default function TabFiveScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Test Tab5</Text>
+      <Text style={styles.title}>Record Exercise</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      <View style={styles.background} />
       <EditScreenInfo path="/screens/TabFiveScreen.tsx" />
     </View>
   );
@@ -28,5 +29,8 @@ const styles = StyleSheet.create({
     marginVertical: 30,
     height: 1,
     width: '80%',
+  },
+  background: {
+    backgroundColor: '9B00E3',
   },
 });
