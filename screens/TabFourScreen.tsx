@@ -1,3 +1,5 @@
+// this is the chat with a coach page
+
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 

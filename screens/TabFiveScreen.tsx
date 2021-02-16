@@ -1,3 +1,5 @@
+// This is the exercise page
+
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 

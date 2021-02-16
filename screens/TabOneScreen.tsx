@@ -1,3 +1,5 @@
+// this is the sugar level tracking page
+
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 
