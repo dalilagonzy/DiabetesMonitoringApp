@@ -36,11 +36,11 @@ const styles = StyleSheet.create({
 
     alignContent: 'flex-start',
 
-    backgroundImage: 
-    paddingTop: 15,
-    paddingBottom: 5,
-    paddingRight: 50,
-    paddingLeft: 15,
+    // backgroundImage: 
+    // paddingTop: 15,
+    // paddingBottom: 5,
+    // paddingRight: 50,
+    // paddingLeft: 15,
   },
   separator: {
     marginVertical: 50,
