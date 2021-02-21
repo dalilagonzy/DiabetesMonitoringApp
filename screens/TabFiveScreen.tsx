@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
 
     alignContent: 'flex-start',
 
-    backgroundColor: "#9B00E3",
+    backgroundImage: 
     paddingTop: 15,
     paddingBottom: 5,
     paddingRight: 50,
