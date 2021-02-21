@@ -26,35 +26,35 @@ export default function BottomTabNavigator() {
         name="TabOne"
         component={TabOneNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="add-circle" color={color} />,
+          tabBarIcon: ({ color, focused }) => <TabBarIcon name="add-circle" color={focused ? "#E410A9" : color} />,
         }}
       />
       <BottomTab.Screen
         name="TabTwo"
         component={TabTwoNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="restaurant" color={color} />,
+          tabBarIcon: ({ color, focused }) => <TabBarIcon name="restaurant" color={focused ? "#2D8931" : color} />,
         }}
       />
       <BottomTab.Screen
         name="TabThree"
         component={TabThreeNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+          tabBarIcon: ({ color, focused }) => <TabBarIcon name="home" color={focused ? "#545454" : color} />,
         }}
       />
       <BottomTab.Screen
         name="TabFour"
         component={TabFourNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="mail" color={color} />,
+          tabBarIcon: ({ color, focused }) => <TabBarIcon name="mail" color={focused ? "#51D0EC" :color} />,
         }}
       />
       <BottomTab.Screen
         name="TabFive"
         component={TabFiveNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-barbell" color={color} />,
+          tabBarIcon: ({ color, focused }) => <TabBarIcon name="ios-barbell" color={focused ? "#9B00E3" : color} />,
         }}
       />
     </BottomTab.Navigator>
@@ -77,7 +77,7 @@ function TabOneNavigator() {
       <TabOneStack.Screen
         name="TabOneScreen"
         component={TabOneScreen}
-        options={{ headerTitle: 'Tab One Title' }}
+        options={{ headerTitle: 'Sugar Level Tracking' }}
       />
     </TabOneStack.Navigator>
   );
@@ -91,7 +91,7 @@ function TabTwoNavigator() {
       <TabTwoStack.Screen
         name="TabTwoScreen"
         component={TabTwoScreen}
-        options={{ headerTitle: 'Tab Two Title' }}
+        options={{ headerTitle: 'Food' }}
       />
     </TabTwoStack.Navigator>
   );
@@ -105,7 +105,7 @@ function TabThreeNavigator() {
       <TabThreeStack.Screen
         name="TabThreeScreen"
         component={TabThreeScreen}
-        options={{ headerTitle: 'Tab Three Title' }}
+        options={{ headerTitle: 'Home Page' }}
       />
     </TabThreeStack.Navigator>
   );
@@ -119,7 +119,7 @@ function TabFourNavigator() {
       <TabFourStack.Screen
         name="TabFourScreen"
         component={TabFourScreen}
-        options={{ headerTitle: 'Tab Four Title' }}
+        options={{ headerTitle: 'Chat with a Coach' }}
       />
     </TabFourStack.Navigator>
   );
@@ -133,7 +133,7 @@ function TabFiveNavigator() {
       <TabFiveStack.Screen
         name="TabFiveScreen"
         component={TabFiveScreen}
-        options={{ headerTitle: 'Tab Five Title' }}
+        options={{ headerTitle: 'Exercise' }}
       />
     </TabFiveStack.Navigator>
   );
