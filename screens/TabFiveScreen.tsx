@@ -5,6 +5,9 @@ import { initialWindowMetrics } from 'react-native-safe-area-context';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
+import InputTime from '../components/InputTime';
+
+import {TextInput} from 'react-native';
 
 export default function TabFiveScreen() {
   return (
@@ -12,7 +15,6 @@ export default function TabFiveScreen() {
     <View style={styles.container}>
       <Text style={styles.title}>RECORD EXERCISE</Text>
       <View style={styles.separator} />
-      <Text style={styles.timeInput}>00:00</Text>
       <EditScreenInfo path="/screens/TabFiveScreen.tsx" />
     </View>
   );
@@ -32,16 +34,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: "#FFF",
+    color: "#000000",
 
     alignContent: 'flex-start',
-
-    // backgroundImage: 
-    // paddingTop: 15,
-    // paddingBottom: 5,
-    // paddingRight: 50,
-    // paddingLeft: 15,
   },
+
   separator: {
     marginVertical: 50,
     height: 1,
@@ -51,7 +48,7 @@ const styles = StyleSheet.create({
   timeInput: {
     fontSize: 70,
     fontWeight: 'bold',
-    color: "#FFF",
+    color: "#00000",
 
     alignContent: 'center',
 
