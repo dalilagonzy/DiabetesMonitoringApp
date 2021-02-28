@@ -30,3 +30,9 @@ export type TabFourParamList = {
 export type TabFiveParamList = {
   TabFiveScreen: undefined;
 };
+
+export type CoachParamList = {
+  name: string;
+  body: string;
+  imgUrl: string;
+}
