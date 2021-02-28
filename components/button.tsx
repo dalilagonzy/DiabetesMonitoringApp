@@ -40,7 +40,6 @@ const buttonStyle = StyleSheet.create({
     buttonText: {
       color: "black",
       fontSize: 20,
-      text: "Click here to log food input"
     }
   }
 ) 
