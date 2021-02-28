@@ -133,7 +133,7 @@ function TabFiveNavigator() {
       <TabFiveStack.Screen
         name="TabFiveScreen"
         component={TabFiveScreen}
-        options={{ headerTitle: 'Tab Five Title' }}
+        options={{ headerTitle: 'Record Exercise'}}
       />
     </TabFiveStack.Navigator>
   );
