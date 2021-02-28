@@ -33,9 +33,10 @@ export default function TabFiveScreen() {
           onPress={() => Alert.alert('Hard pressed')}
         />
       </View>
-    
-
+  
       <View style={styles.separator} />
+
+      <Input placeholder='BASIC INPUT'/>
 
       <Button
         title="Save"
