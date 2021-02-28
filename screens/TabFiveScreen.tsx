@@ -12,7 +12,14 @@ export default function TabFiveScreen() {
   return (
 
     <View style={styles.container}>
-      <Text style={styles.timeInput}>00:00</Text>
+      
+      <Text style={styles.temp}>Please enter the minutes of exercise </Text>
+
+      <Input 
+      placeholder="" 
+      containerStyle={styles.timeInputContainer}
+      inputStyle={styles.timeInputText}
+      />
 
       <View style={styles.miniSeparator} />
 
@@ -36,7 +43,11 @@ export default function TabFiveScreen() {
   
       <View style={styles.separator} />
 
-      <Input placeholder='BASIC INPUT'/>
+      <Input 
+      placeholder="Optional Notes: Describe Exercise" 
+      containerStyle={styles.commentsInputContainer}
+      inputStyle={styles.temp}
+      />
 
       <Button
         title="Save"
@@ -44,8 +55,6 @@ export default function TabFiveScreen() {
         onPress={() => Alert.alert('Save button pressed')}
       />
      
-
-      <Text style={styles.temp}>Temporary</Text>
       <EditScreenInfo path="/screens/TabFiveScreen.tsx" />
     </View>
   );
@@ -58,15 +67,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 20,
     flexDirection: 'column',
-    backgroundColor: '#000000',
   },
 
-  timeInput: {
-    fontSize: 50,
-    color: '#FFFFFF',
-    padding: 10,
+  timeInputContainer: {
     borderRadius: 15,
     backgroundColor: '#DA8EFF',
+  },
+
+  timeInputText: {
+    padding: 10,
+    fontSize: 50,
+    color: '#FFFFFF',
+    alignSelf: 'center',
   },
 
   containerForButtons: {
@@ -78,6 +90,14 @@ const styles = StyleSheet.create({
     marginVertical: 30,
     width: '80%',
   },
+
+  commentsInputContainer: {
+    padding: 10,
+    borderColor: '#FFFFFF',
+    borderStyle: 'solid',
+    borderWidth: 1,
+  },
+
   miniSeparator: {
     marginVertical: 10,
     width: '80%',
@@ -85,6 +105,7 @@ const styles = StyleSheet.create({
 
   temp: {
     fontSize: 20,
+    color: '#FFFFFF',
   }
 });
 
