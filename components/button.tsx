@@ -2,6 +2,7 @@ import * as React from 'react';
 import { StyleSheet } from 'react-native';
 import { Text, View } from '../components/Themed';
 import { TouchableOpacity } from 'react-native';
+// import { useLinkProps } from '@react-navigation/native';
 
 export function Button(){
   
@@ -10,8 +11,10 @@ export function Button(){
 return(
   <TouchableOpacity onPress={_onPressButton}>
   <View style={buttonStyle.button}>
-    <Text style={buttonStyle.buttonText}>
-      </Text>
+    <Text style={buttonStyle.buttonText}>Click here to log in food input</Text>
+    {/* <Text style={buttonStyle.buttonText}>
+      </Text> */}
+    
   </View>
 </TouchableOpacity>
 );
@@ -34,12 +37,22 @@ function _onPressButton(){
 const buttonStyle = StyleSheet.create({
     button: {
       backgroundColor: "green",
-      paddingVertical: 10,
-      paddingHorizontal: 10,
+      paddingVertical: 5,
+      paddingHorizontal: 5,
+      borderRadius: 25,
+      position: 'absolute',
+      bottom: -10,
+      left: -200,
       },
+    // buttonPosition: {
+    //   position: 'absolute',
+    //   bottom: 200,
+    //   left: 200
+    // },
     buttonText: {
       color: "black",
       fontSize: 20,
+
     }
   }
 ) 
