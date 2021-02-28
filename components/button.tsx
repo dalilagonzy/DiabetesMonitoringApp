@@ -51,8 +51,8 @@ const buttonStyle = StyleSheet.create({
     // },
     buttonText: {
       color: "black",
-      fontSize: 15
-    
+      fontSize: 20,
+
     }
   }
 ) 
