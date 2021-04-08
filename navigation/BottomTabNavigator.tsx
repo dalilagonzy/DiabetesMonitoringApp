@@ -10,6 +10,7 @@ import TabTwoScreen from '../screens/TabTwoScreen';
 import TabThreeScreen from '../screens/TabThreeScreen';
 import TabFourScreen from '../screens/TabFourScreen';
 import TabFiveScreen from '../screens/TabFiveScreen';
+import CoachInfoScreen from '../screens/CoachInfo';
 import { BottomTabParamList, TabOneParamList, TabTwoParamList, TabThreeParamList, TabFourParamList, TabFiveParamList } from '../types';
 
 import {Button} from 'react-native';
@@ -23,39 +24,39 @@ export default function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="Home"
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint, showLabel: false }}>
         
       <BottomTab.Screen
-        name="TabOne"
+        name="Sugar"
         component={TabOneNavigator}
         options={{
           tabBarIcon: ({ color, focused }) => <TabBarIcon name="add-circle" color={focused ? "#E410A9" : color} />,
         }}
       />
       <BottomTab.Screen
-        name="TabTwo"
+        name="Food"
         component={TabTwoNavigator}
         options={{
           tabBarIcon: ({ color, focused }) => <TabBarIcon name="restaurant" color={focused ? "#2D8931" : color} />,
         }}
       />
       <BottomTab.Screen
-        name="TabThree"
+        name="Home"
         component={TabThreeNavigator}
         options={{
           tabBarIcon: ({ color, focused }) => <TabBarIcon name="home" color={focused ? "#545454" : color} />,
         }}
       />
       <BottomTab.Screen
-        name="TabFour"
+        name="Coach"
         component={TabFourNavigator}
         options={{
           tabBarIcon: ({ color, focused }) => <TabBarIcon name="mail" color={focused ? "#51D0EC" :color} />,
         }}
       />
       <BottomTab.Screen
-        name="TabFive"
+        name="Exercise"
         component={TabFiveNavigator}
         options={{
           tabBarIcon: ({ color, focused }) => <TabBarIcon name="ios-barbell" color={focused ? "#9B00E3" : color} />,
@@ -150,6 +151,18 @@ function TabFourNavigator() {
         headerRight: () => (
           <AntDesign name = 'user' size={20} color="white" onPress={() => alert('Profile pressed')}/>
         ) 
+        }}
+      />
+      <TabFourStack.Screen
+        name="CoachInfoScreen"
+        component={CoachInfoScreen}
+        options={{
+          title: 'Coach Information',
+          headerStyle: {backgroundColor: '#51D0EC'},
+          headerTintColor: '#fff',
+          headerRight: () => (
+            <AntDesign name = 'user' size={20} color="white" onPress={() => alert('Profile pressed')}/>
+          ) 
         }}
       />
     </TabFourStack.Navigator>

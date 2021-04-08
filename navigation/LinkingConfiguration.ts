@@ -24,6 +24,8 @@ export default {
           TabFour: {
             screens: {
               TabFourScreen: 'four',
+              CarouselComponent: "CarouselComponent",
+              CoachInfo: "CoachInfo"
             },
           },
           TabFive: {

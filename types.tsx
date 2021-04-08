@@ -1,14 +1,16 @@
+
 export type RootStackParamList = {
   Root: undefined;
   NotFound: undefined;
 };
 
 export type BottomTabParamList = {
-  TabOne: undefined;
-  TabTwo: undefined;
-  TabThree: undefined;
-  TabFour: undefined;
-  TabFive: undefined;
+  Sugar: undefined;
+  Food: undefined;
+  Home: undefined;
+  Coach: undefined;
+  Exercise: undefined;
+  CoachInfo: undefined;
 };
 
 export type TabOneParamList = {
@@ -25,6 +27,7 @@ export type TabThreeParamList = {
 
 export type TabFourParamList = {
   TabFourScreen: undefined;
+  CoachInfoScreen: undefined;
 };
 
 export type TabFiveParamList = {

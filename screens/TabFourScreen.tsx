@@ -2,16 +2,24 @@
 
 import { RevealFromBottomAndroidSpec } from '@react-navigation/stack/lib/typescript/src/TransitionConfigs/TransitionSpecs';
 import * as React from 'react';
-import { StyleSheet, ScrollView } from 'react-native';
-import Carousel, { Pagination } from 'react-native-snap-carousel'
+import { StyleSheet, TouchableOpacity, Dimensions, Image } from 'react-native';
+import Carousel from 'react-native-snap-carousel'
+import { useNavigation } from '@react-navigation/native';
 
 import CarouselCardItem, { SLIDER_WIDTH, ITEM_WIDTH } from '../components/carouselCardItem';
-import { Text, View } from '../components/Themed';
+import { Text, View, ScrollView } from '../components/Themed';
 import coaches from '../coaches';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { TabFourParamList } from '../types';
 
-export default function TabThreeScreen() {
+type TabFourNavigationProps = StackNavigationProp<TabFourParamList, "TabFourScreen">;
+interface TabFourScreenProps {
+  navigation: TabFourNavigationProps;
+}
+
+const TabFourScreen: React.FunctionComponent<TabFourScreenProps> = (props) => {
+  const {navigation} = props
   const isCarousel = React.useRef(null)
-  const [index, setIndex] = React.useState(0)
   return (
     <ScrollView style={styles.container}>
       <View>
@@ -42,6 +50,12 @@ export default function TabThreeScreen() {
           useScrollView={true}
         />
       </View>
+      <TouchableOpacity
+        style={styles.toggleBtn}
+        onPress={() => {navigation.navigate("CoachInfoScreen", )}}
+      >
+        <Text style={styles.toggleBtnText}>Click to choose</Text>
+      </TouchableOpacity>
     </ScrollView>
   );
 }
@@ -67,7 +81,7 @@ const styles = StyleSheet.create({
   },
   getStartedContainer: {
     marginTop: 30,
-    backgroundColor: "#D9EAFD",
+    backgroundColor: "#51D0EC",
     borderRadius: 30,
     marginHorizontal: 25,
     margin: 20,
@@ -78,9 +92,25 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     marginVertical: 12,
     textAlign: 'center',
-    color: "#000",
+    color: "#fff",
   },
   carouselContainer: {
     paddingBottom: 20,
-  }
+  },
+  toggleBtn: {
+    backgroundColor: "#51D0EC",
+    alignContent: "center",
+    paddingVertical: 5,
+    borderRadius: 8,
+    marginHorizontal: 30,
+    marginVertical: 10,
+    paddingBottom: 10,
+  },
+  toggleBtnText: {
+    textAlign: "center",
+    fontWeight: "bold",
+    color: "#FFF"
+  },
 });
+
+export default TabFourScreen
