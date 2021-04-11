@@ -1,6 +1,6 @@
 import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStackNavigator, HeaderBackground } from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 
 import Colors from '../constants/Colors';
@@ -11,10 +11,6 @@ import TabThreeScreen from '../screens/TabThreeScreen';
 import TabFourScreen from '../screens/TabFourScreen';
 import TabFiveScreen from '../screens/TabFiveScreen';
 import { BottomTabParamList, TabOneParamList, TabTwoParamList, TabThreeParamList, TabFourParamList, TabFiveParamList } from '../types';
-
-import {Button} from 'react-native';
-import {AntDesign, MaterialIcons} from '@expo/vector-icons';
-import Navigation from '.';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -30,35 +26,35 @@ export default function BottomTabNavigator() {
         name="TabOne"
         component={TabOneNavigator}
         options={{
-          tabBarIcon: ({ color, focused }) => <TabBarIcon name="add-circle" color={focused ? "#E410A9" : color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="add-circle" color={color} />,
         }}
       />
       <BottomTab.Screen
         name="TabTwo"
         component={TabTwoNavigator}
         options={{
-          tabBarIcon: ({ color, focused }) => <TabBarIcon name="restaurant" color={focused ? "#2D8931" : color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="restaurant" color={color} />,
         }}
       />
       <BottomTab.Screen
         name="TabThree"
         component={TabThreeNavigator}
         options={{
-          tabBarIcon: ({ color, focused }) => <TabBarIcon name="home" color={focused ? "#545454" : color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
         }}
       />
       <BottomTab.Screen
         name="TabFour"
         component={TabFourNavigator}
         options={{
-          tabBarIcon: ({ color, focused }) => <TabBarIcon name="mail" color={focused ? "#51D0EC" :color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="mail" color={color} />,
         }}
       />
       <BottomTab.Screen
         name="TabFive"
         component={TabFiveNavigator}
         options={{
-          tabBarIcon: ({ color, focused }) => <TabBarIcon name="ios-barbell" color={focused ? "#9B00E3" : color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-barbell" color={color} />,
         }}
       />
     </BottomTab.Navigator>
@@ -81,14 +77,7 @@ function TabOneNavigator() {
       <TabOneStack.Screen
         name="TabOneScreen"
         component={TabOneScreen}
-        options={{ 
-        title: 'Sugar Level Tracking',
-        headerStyle: {backgroundColor: '#E410A9'},
-        headerTintColor: '#fff',
-        headerRight: () => (
-          <AntDesign name = 'user' size={20} color="white" onPress={() => alert('Profile pressed')}/>
-        )
-      }}
+        options={{ headerTitle: 'Tab One Title' }}
       />
     </TabOneStack.Navigator>
   );
@@ -102,14 +91,7 @@ function TabTwoNavigator() {
       <TabTwoStack.Screen
         name="TabTwoScreen"
         component={TabTwoScreen}
-        options={{ 
-        title: 'Food',
-        headerStyle: {backgroundColor: '#2D8931'},
-        headerTintColor: '#fff',
-        headerRight: () => (
-          <AntDesign name = 'user' size={20} color="white" onPress={() => alert('Profile pressed')}/>
-        )
-      }}
+        options={{ headerTitle: 'Tab Two Title' }}
       />
     </TabTwoStack.Navigator>
   );
@@ -123,14 +105,7 @@ function TabThreeNavigator() {
       <TabThreeStack.Screen
         name="TabThreeScreen"
         component={TabThreeScreen}
-        options={{  
-        title: 'Home Page',
-        headerStyle: {backgroundColor: '#545454'},
-        headerTintColor: '#fff',
-        headerRight: () => (
-          <AntDesign name = 'user' size={20} color="white" onPress={() => alert('Profile pressed')}/>
-        )
-      }}
+        options={{ headerTitle: 'Tab Three Title' }}
       />
     </TabThreeStack.Navigator>
   );
@@ -144,13 +119,7 @@ function TabFourNavigator() {
       <TabFourStack.Screen
         name="TabFourScreen"
         component={TabFourScreen}
-        options={{ title: 'Chat with a Coach',
-        headerStyle: {backgroundColor: '#51D0EC'},
-        headerTintColor: '#fff',
-        headerRight: () => (
-          <AntDesign name = 'user' size={20} color="white" onPress={() => alert('Profile pressed')}/>
-        ) 
-        }}
+        options={{ headerTitle: 'Tab Four Title' }}
       />
     </TabFourStack.Navigator>
   );
@@ -159,24 +128,13 @@ function TabFourNavigator() {
 const TabFiveStack = createStackNavigator<TabFiveParamList>();
 
 function TabFiveNavigator() {
-  
   return (
     <TabFiveStack.Navigator>
       <TabFiveStack.Screen
         name="TabFiveScreen"
         component={TabFiveScreen}
-        options={{
-          title: 'Exercise',
-        headerStyle: {backgroundColor: '#9B00E3'},
-        headerTintColor: '#fff',
-        headerRight: () => (
-          <AntDesign name = 'user' size={20} color="white" onPress={() => alert('Profile pressed')}/>
-        ) 
-        }}
+        options={{ headerTitle: 'Tab Five Title' }}
       />
     </TabFiveStack.Navigator>
   );
 }
-
-
-
