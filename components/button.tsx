@@ -48,8 +48,3 @@ const buttonStyle = StyleSheet.create({
   }
 ) 
 
-// buttonPosition: {
-    //   position: 'absolute',
-    //   bottom: 200,
-    //   left: 200
-    // },
