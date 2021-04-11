@@ -5,7 +5,7 @@ import { useLinkProps } from '@react-navigation/native';
 import * as React from 'react';
 import { StyleSheet,  TextInput } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import {Button} from '../components/button';
+import { Button } from '../components/button';
 import { Text, View } from '../components/Themed';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input } from 'react-native-elements';
@@ -43,7 +43,7 @@ type DismissKeyboardProps = {
 }
 
 const DismissKeyboard = ({children}: DismissKeyboardProps) => (
-  <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+  <TouchableWithoutFeedback>
     {children}
   </TouchableWithoutFeedback>
 );
