@@ -19,6 +19,7 @@ export default function TabThreeScreen() {
       <Text style={styles.tracking}>Food</Text>
       <Text style={styles.tracking}>Coach Page</Text>
       <Text style={styles.tracking}>Your Profile</Text>
+      <View style={styles.CircleShapeView}></View>
     </View>
   );
 }
@@ -48,4 +49,13 @@ const styles = StyleSheet.create({
     height: 1,
     width: '80%',
   },
+  CircleShapeView: {
+    width: 100,
+    height: 100,
+    borderRadius: 100/2,
+    backgroundColor: 'red',
+    position: "absolute",
+    top: 0,
+    left: 0
+  }
 });
