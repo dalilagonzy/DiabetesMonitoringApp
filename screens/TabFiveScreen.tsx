@@ -1,6 +1,7 @@
 import { RevealFromBottomAndroidSpec } from '@react-navigation/stack/lib/typescript/src/TransitionConfigs/TransitionSpecs';
 import * as React from 'react';
 import { StyleSheet, Button, Alert, TextInput } from 'react-native';
+import {useState} from 'react';
 import { initialWindowMetrics } from 'react-native-safe-area-context';
 
 import EditScreenInfo from '../components/EditScreenInfo';
@@ -9,17 +10,21 @@ import { Text, View } from '../components/Themed';
 import{Input} from 'react-native-elements';
 
 export default function TabFiveScreen() {
+  const [time, setTime] = useState('00:00');
+  const [description, setDescription] = useState('optional');
+
   return (
 
     <View style={styles.container}>
       
-      <Text style={styles.temp}>Please enter the minutes of exercise </Text>
+      <View style={styles.separator} />
 
-      <Input 
-      placeholder="" 
-      containerStyle={styles.timeInputContainer}
-      inputStyle={styles.timeInputText}
-      />
+      <Text> Please enter minutes of Exercise:</Text>
+      <TextInput 
+        //keyboardType = 'numeric'
+        style={styles.input}
+        placeholder=''
+        onChangeText={(val) => setTime(val)}/>
 
       <View style={styles.miniSeparator} />
 
@@ -41,13 +46,13 @@ export default function TabFiveScreen() {
         />
       </View>
   
-      <View style={styles.separator} />
+      <View style={styles.miniSeparator} />
 
-      <Input 
-      placeholder="Optional Notes: Describe Exercise" 
-      containerStyle={styles.commentsInputContainer}
-      inputStyle={styles.temp}
-      />
+      <TextInput
+        //multiline 
+        style={styles.descriptionInput}
+        placeholder='Optional Notes: Describe Exercise'
+        onChangeText={(val) => setDescription(val)}/>
 
       <Button
         title="Save"
@@ -69,9 +74,27 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
 
-  timeInputContainer: {
+  input: {
+    borderWidth: 1,
+    borderColor: '#DA8EFF',
+    padding: 8,
+    width: 240,
+    margin: 10,
     borderRadius: 15,
     backgroundColor: '#DA8EFF',
+    height: 90,
+    color: '#FFFFFF',
+    textAlign: 'center',
+    fontSize: 50,
+  },
+
+  descriptionInput: {
+    borderWidth: 1,
+    borderColor: '#000',
+    padding: 8,
+    width: 300,
+    margin: 10,
+    height: 130,
   },
 
   timeInputText: {
@@ -103,10 +126,7 @@ const styles = StyleSheet.create({
     width: '80%',
   },
 
-  temp: {
-    fontSize: 20,
-    color: '#FFFFFF',
-  }
+ 
 });
 
 
