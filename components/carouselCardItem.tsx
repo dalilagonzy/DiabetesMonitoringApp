@@ -1,9 +1,9 @@
 import React from 'react'
-import { View, Text, StyleSheet, Dimensions, Image } from 'react-native'
-import { CoachParamList } from '../types'
+import { Text, View, StyleSheet, Dimensions, Image } from 'react-native'
+import { CoachParamList } from '../types';
 
 export const SLIDER_WIDTH = Dimensions.get('window').width
-export const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.7)
+export const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.8)
 
 const CarouselCardItem = ({ item, index }: {item: CoachParamList, index: number}) => {
   return (
@@ -22,7 +22,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 8,
     width: ITEM_WIDTH,
-    paddingBottom: 40,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -40,15 +39,37 @@ const styles = StyleSheet.create({
     color: "#222",
     fontSize: 28,
     fontWeight: "bold",
-    paddingLeft: 20,
-    paddingTop: 20
+    paddingVertical: 10,
+    textAlign: "center",
   },
   body: {
     color: "#222",
     fontSize: 18,
     paddingLeft: 20,
     paddingRight: 20
-  }
+  },
+  toggleBtn: {
+    backgroundColor: "#51D0EC",
+    alignContent: "center",
+    paddingVertical: 5,
+    borderRadius: 8,
+    marginHorizontal: 30,
+    marginVertical: 10,
+    paddingBottom: 10,
+  },
+  toggleBtnText: {
+    textAlign: "center",
+    fontWeight: "bold",
+    color: "#FFF"
+  },
+  modalBody: {
+    backgroundColor: "#FFF",
+    alignContent: "center",
+    margin: 40,
+  },
+  modalText: {
+
+  },
 })
 
 export default CarouselCardItem
