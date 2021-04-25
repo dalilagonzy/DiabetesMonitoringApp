@@ -12,13 +12,24 @@ import { Text, View } from '../components/Themed';
 export default function TabThreeScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.welcome}>Welcome to the Home Page!</Text>
+      <Text style={styles.title}>Welcome to the Home Page!</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <Text style={styles.tracking}>Sugar Level {'\n'}Tracking</Text>
-      <Text style={styles.tracking}>Exercise Tracking</Text>
-      <Text style={styles.tracking}>Food</Text>
-      <Text style={styles.tracking}>Coach Page</Text>
-      <Text style={styles.tracking}>Your Profile</Text>
+      
+      <View style={styles.PinkCircleShapeView}>
+        <Text style={styles.tracking}>Sugar Level {'\n'}Tracking</Text>
+      </View>
+      <View style={styles.CyanCircleShapeView}>
+        <Text style={styles.tracking}>Coach{'\n'}Page</Text>
+      </View>
+      <View style={styles.PurpleCircleShapeView}>
+        <Text style={styles.tracking}>Exercise {'\n'}Tracking</Text>
+      </View>
+      <View style={styles.GrayCircleShapeView}>
+        <Text style={styles.tracking}>Your {'\n'}Profile</Text>
+      </View>
+      <View style={styles.GreenCircleShapeView}>
+        <Text style={styles.tracking}>Food {'\n'}Tracking</Text>
+      </View>
     </View>
   );
 }
@@ -32,20 +43,66 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+    position: "absolute",
+    top: 35,
+    left: 20,
   },
   tracking: {
     fontSize: 20,
     justifyContent: 'center',
     fontWeight: 'bold',
-  },
-  welcome: {
-    fontSize: 25,
-    textAlignVertical: 'top',
-    textAlign: 'left',
+    textAlign: "center",
+    marginTop: 50,
   },
   separator: {
-    marginVertical: 30,
-    height: 1,
+    marginTop: 20,
+    marginVertical: 510,
+    height: 2,
     width: '80%',
   },
+  PinkCircleShapeView: {
+    width: 150,
+    height: 150,
+    borderRadius: 150/2,
+    backgroundColor: '#E410A9',
+    position: "absolute",
+    top: 100,
+    left: 20
+  },
+  CyanCircleShapeView: { // food tracking
+    width: 150,
+    height: 150,
+    borderRadius: 150/2,
+    backgroundColor: '#15F1E7',
+    position: "absolute",
+    top: 100,
+    right: 20,
+  },
+  PurpleCircleShapeView: { // coach page
+    width: 150,
+    height: 150,
+    borderRadius: 150/2,
+    backgroundColor: '#DA8EFF',
+    position: "absolute",
+    top: 265,
+    left: 20,
+  },
+  GreenCircleShapeView: { // coach page
+    width: 150,
+    height: 150,
+    borderRadius: 150/2,
+    backgroundColor: '#36CE3D',
+    position: "absolute",
+    top: 265,
+    right: 20,
+  },
+  GrayCircleShapeView: { // coach page
+    width: 150,
+    height: 150,
+    borderRadius: 150/2,
+    backgroundColor: 'gray',
+    position: "absolute",
+    top: 430,
+    left: 20,
+  }
 });
