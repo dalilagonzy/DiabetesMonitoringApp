@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Text as DefaultText, View as DefaultView } from 'react-native';
-import { StyleSheet } from 'react-native'; 
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
@@ -40,9 +39,3 @@ export function View(props: ViewProps) {
 
   return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />;
 }
-
-export function Button(props: TextProps){
-  
-}
-
-
