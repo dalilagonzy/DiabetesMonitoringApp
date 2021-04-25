@@ -12,10 +12,7 @@ return(
   <TouchableOpacity onPress={_onPressButton}>
   <View style={buttonStyle.button}>
     <Text style={buttonStyle.buttonText}>Click here to log in food input</Text>
-    {/* <Text style={buttonStyle.buttonText}>
-      </Text> */}
-    
-  </View>
+   </View>
 </TouchableOpacity>
 );
 
@@ -36,22 +33,17 @@ function _onPressButton(){
 
 const buttonStyle = StyleSheet.create({
     button: {
-      backgroundColor: "green",
+      backgroundColor: "#96EB9D",
       paddingVertical: 5,
       paddingHorizontal: 5,
       borderRadius: 25,
       position: 'absolute',
       bottom: -10,
-      left: -200,
+      left: -100,
       },
-    // buttonPosition: {
-    //   position: 'absolute',
-    //   bottom: 200,
-    //   left: 200
-    // },
     buttonText: {
       color: "black",
-      fontSize: 20,
+      fontSize: 15,
 
     }
   }
