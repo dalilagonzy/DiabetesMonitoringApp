@@ -4,38 +4,40 @@ import { RevealFromBottomAndroidSpec } from '@react-navigation/stack/lib/typescr
 import * as React from 'react';
 import { StyleSheet, TouchableOpacity, Dimensions, Image } from 'react-native';
 import Carousel from 'react-native-snap-carousel'
-import { useNavigation } from '@react-navigation/native';
 
 import CarouselCardItem, { SLIDER_WIDTH, ITEM_WIDTH } from '../components/carouselCardItem';
 import { Text, View, ScrollView } from '../components/Themed';
 import coaches from '../coaches';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { TabFourParamList } from '../types';
+import DropDownPicker from 'react-native-dropdown-picker';
 
 type TabFourNavigationProps = StackNavigationProp<TabFourParamList, "TabFourScreen">;
 interface TabFourScreenProps {
   navigation: TabFourNavigationProps;
 }
 
+var coachChosen = "";
+
 const TabFourScreen: React.FunctionComponent<TabFourScreenProps> = (props) => {
-  const {navigation} = props
+  const { navigation } = props
   const isCarousel = React.useRef(null)
   return (
     <ScrollView style={styles.container}>
       <View>
-      <View style={styles.welcomeContainer}>
-        <Text
-          style={styles.welcomeText}
-          lightColor="rgba(0,0,0,0.8)"
-          darkColor="rgba(255,255,255,0.8)">
-          Welcome! On the coach page, you can contact a certified coach to ask general questions such as recommendations for meals, exercise or even for support!
+        <View style={styles.welcomeContainer}>
+          <Text
+            style={styles.welcomeText}
+            lightColor="rgba(0,0,0,0.8)"
+            darkColor="rgba(255,255,255,0.8)">
+            Welcome! On the coach page, you can contact a certified coach to ask general questions such as recommendations for meals, exercise or even for support!
         </Text>
-      </View>
-      <View style={styles.getStartedContainer} >
-        <Text style={styles.getStartedText}>
-          To get started, choose one of the coaches below! Click on their pictures to learn more about them.
+        </View>
+        <View style={styles.getStartedContainer} >
+          <Text style={styles.getStartedText}>
+            To get started, choose one of the coaches below! Click on their pictures to learn more about them.
         </Text>
-      </View>
+        </View>
       </View>
       <View style={styles.carouselContainer}>
         <Carousel
@@ -50,9 +52,30 @@ const TabFourScreen: React.FunctionComponent<TabFourScreenProps> = (props) => {
           useScrollView={true}
         />
       </View>
+
+      <View style={styles.dropdownBox}>
+        <DropDownPicker
+          items={[
+            { label: 'Example 1', value: 'ch1' },
+            { label: 'Person 2', value: 'ch2' },
+            { label: 'Person 3', value: 'ch3' },
+            { label: 'Person 4', value: 'ch4' }
+          ]}
+          containerStyle={styles.dropdownContainer}
+          style={styles.dropdownStyles}
+          itemStyle={{
+            justifyContent: 'flex-start'
+          }}
+          dropDownStyle={{ backgroundColor: '#fafafa' }}
+          onChangeItem={item => {
+            coachChosen = item.label;
+          }}
+        />
+      </View>
+
       <TouchableOpacity
         style={styles.toggleBtn}
-        onPress={() => {navigation.navigate("CoachInfoScreen", )}}
+        onPress={() => { navigation.navigate("CoachInfoScreen",) }}
       >
         <Text style={styles.toggleBtnText}>Click to choose</Text>
       </TouchableOpacity>
@@ -95,7 +118,7 @@ const styles = StyleSheet.create({
     color: "#fff",
   },
   carouselContainer: {
-    paddingBottom: 20,
+    paddingBottom: 10,
   },
   toggleBtn: {
     backgroundColor: "#51D0EC",
@@ -110,6 +133,18 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "bold",
     color: "#FFF"
+  },
+  dropdownBox: {
+    alignItems: 'center',
+  },
+  dropdownContainer: {
+    height: 40,
+    width: Math.round(SLIDER_WIDTH * 0.8),
+    alignItems: 'center',
+    flex: 1,
+  },
+  dropdownStyles: {
+    backgroundColor: '#fafafa',
   },
 });
 
