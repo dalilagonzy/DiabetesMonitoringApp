@@ -28,7 +28,11 @@ export default function TabTwoScreen() {
       style={textBoxStyle.textBox}
       placeholder='BASIC INPUT'
       />
-      
+
+      {/* <TouchableWithoutFeedback onPress={Keyboard.dismiss} >
+        <TextInput keyboardType='default'/>
+        </TouchableWithoutFeedback> */}
+
      </View>
      </DismissKeyboard>
     );
@@ -39,7 +43,7 @@ type DismissKeyboardProps = {
 }
 
 const DismissKeyboard = ({children}: DismissKeyboardProps) => (
-  <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+  <TouchableWithoutFeedback>
     {children}
   </TouchableWithoutFeedback>
 );
