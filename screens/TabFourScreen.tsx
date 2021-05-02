@@ -9,7 +9,7 @@ import CarouselCardItem, { SLIDER_WIDTH, ITEM_WIDTH } from '../components/carous
 import { Text, View, ScrollView } from '../components/Themed';
 import coaches from '../coaches';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { TabFourParamList } from '../types';
+import { TabFourParamList, CoachParamList } from '../types';
 import DropDownPicker from 'react-native-dropdown-picker';
 
 type TabFourNavigationProps = StackNavigationProp<TabFourParamList, "TabFourScreen">;
@@ -17,7 +17,7 @@ interface TabFourScreenProps {
   navigation: TabFourNavigationProps;
 }
 
-var coachChosen = "";
+var coach:CoachParamList;
 
 const TabFourScreen: React.FunctionComponent<TabFourScreenProps> = (props) => {
   const { navigation } = props
@@ -35,7 +35,7 @@ const TabFourScreen: React.FunctionComponent<TabFourScreenProps> = (props) => {
         </View>
         <View style={styles.getStartedContainer} >
           <Text style={styles.getStartedText}>
-            To get started, choose one of the coaches below! Click on their pictures to learn more about them.
+            To get started, look through the coaches below by swiping left and right. Choose your coach using the dropdown picker below.
         </Text>
         </View>
       </View>
@@ -53,13 +53,13 @@ const TabFourScreen: React.FunctionComponent<TabFourScreenProps> = (props) => {
         />
       </View>
 
-      <View style={styles.dropdownBox}>
         <DropDownPicker
           items={[
-            { label: 'Example 1', value: 'ch1' },
-            { label: 'Person 2', value: 'ch2' },
-            { label: 'Person 3', value: 'ch3' },
-            { label: 'Person 4', value: 'ch4' }
+            //these have to be in the same order as in coaches.tsx
+            { label: 'Example 1', value: 1 },
+            { label: 'Person 2', value: 2 },
+            { label: 'Person 3', value: 3 },
+            { label: 'Person 4', value: 4 }
           ]}
           containerStyle={styles.dropdownContainer}
           style={styles.dropdownStyles}
@@ -68,14 +68,14 @@ const TabFourScreen: React.FunctionComponent<TabFourScreenProps> = (props) => {
           }}
           dropDownStyle={{ backgroundColor: '#fafafa' }}
           onChangeItem={item => {
-            coachChosen = item.label;
+            coach = coaches[item.value];
           }}
         />
-      </View>
+      
 
       <TouchableOpacity
         style={styles.toggleBtn}
-        onPress={() => { navigation.navigate("CoachInfoScreen",) }}
+        onPress={() => { navigation.navigate("CoachInfoScreen", { coach }) }}
       >
         <Text style={styles.toggleBtnText}>Click to choose</Text>
       </TouchableOpacity>
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   getStartedContainer: {
-    marginTop: 30,
+    marginTop: 15,
     backgroundColor: "#51D0EC",
     borderRadius: 30,
     marginHorizontal: 25,
@@ -125,7 +125,8 @@ const styles = StyleSheet.create({
     alignContent: "center",
     paddingVertical: 5,
     borderRadius: 8,
-    marginHorizontal: 30,
+    width: Math.round(SLIDER_WIDTH * 0.8),
+    marginLeft: Math.round(SLIDER_WIDTH * 0.1),
     marginVertical: 10,
     paddingBottom: 10,
   },
@@ -139,9 +140,9 @@ const styles = StyleSheet.create({
   },
   dropdownContainer: {
     height: 40,
-    width: Math.round(SLIDER_WIDTH * 0.8),
-    alignItems: 'center',
+    width: Math.round(SLIDER_WIDTH * 0.7),
     flex: 1,
+    marginLeft: Math.round(SLIDER_WIDTH * 0.15),
   },
   dropdownStyles: {
     backgroundColor: '#fafafa',

@@ -6,14 +6,15 @@ import { StackNavigationProp } from '@react-navigation/stack';
 type CoachInfoNavigationProps = StackNavigationProp<TabFourParamList, "CoachInfoScreen">;
 interface CoachInfoProps {
   navigation: CoachInfoNavigationProps;
-  data: CoachParamList,
+  coach: CoachParamList,
 }
 
 const CoachInfo: React.FunctionComponent<CoachInfoProps> = (props) => {
-    const { data } = props;
+    const coach = props.coach;
     return (
         <ScrollView>
             <Text>Hello!</Text>
+            <Text>{coach}</Text>
         </ScrollView>
     )
 }

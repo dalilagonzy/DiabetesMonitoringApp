@@ -1,4 +1,3 @@
-
 export type RootStackParamList = {
   Root: undefined;
   NotFound: undefined;
@@ -27,7 +26,7 @@ export type TabThreeParamList = {
 
 export type TabFourParamList = {
   TabFourScreen: undefined;
-  CoachInfoScreen: undefined;
+  CoachInfoScreen: {coach: CoachParamList};
 };
 
 export type TabFiveParamList = {
