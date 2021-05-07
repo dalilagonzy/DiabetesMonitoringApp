@@ -26,7 +26,7 @@ export type TabThreeParamList = {
 
 export type TabFourParamList = {
   TabFourScreen: undefined;
-  CoachInfoScreen: {coach: CoachParamList};
+  CoachInfoScreen: {coach: string};
 };
 
 export type TabFiveParamList = {

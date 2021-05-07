@@ -17,7 +17,7 @@ interface TabFourScreenProps {
   navigation: TabFourNavigationProps;
 }
 
-var coach:CoachParamList;
+var coach:string;
 
 const TabFourScreen: React.FunctionComponent<TabFourScreenProps> = (props) => {
   const { navigation } = props
@@ -29,8 +29,9 @@ const TabFourScreen: React.FunctionComponent<TabFourScreenProps> = (props) => {
           <Text
             style={styles.welcomeText}
             lightColor="rgba(0,0,0,0.8)"
-            darkColor="rgba(255,255,255,0.8)">
+            darkColor="rgba(255,255,255,0.85)">
             Welcome! On the coach page, you can contact a certified coach to ask general questions such as recommendations for meals, exercise or even for support!
+            To get started, look through the coaches below by swiping left and right. Choose your coach using the dropdown picker below.
         </Text>
         </View>
         <View style={styles.getStartedContainer} >
@@ -56,10 +57,9 @@ const TabFourScreen: React.FunctionComponent<TabFourScreenProps> = (props) => {
         <DropDownPicker
           items={[
             //these have to be in the same order as in coaches.tsx
-            { label: 'Example 1', value: 1 },
-            { label: 'Person 2', value: 2 },
-            { label: 'Person 3', value: 3 },
-            { label: 'Person 4', value: 4 }
+            { label: 'Susan White', value: 1 },
+            { label: 'Allen Smith', value: 2 },
+            { label: 'Jane Doe', value: 3 },
           ]}
           containerStyle={styles.dropdownContainer}
           style={styles.dropdownStyles}
@@ -68,7 +68,7 @@ const TabFourScreen: React.FunctionComponent<TabFourScreenProps> = (props) => {
           }}
           dropDownStyle={{ backgroundColor: '#fafafa' }}
           onChangeItem={item => {
-            coach = coaches[item.value];
+            coach = coaches[item.value - 1].body;
           }}
         />
       
