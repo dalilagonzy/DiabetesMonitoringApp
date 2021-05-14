@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text as DefaultText, View as DefaultView, ScrollView as DefaultScrollView } from 'react-native';
+import { Text as DefaultText, View as DefaultView, ScrollView as DefaultScrollView, TextInput as DefaultTextInput } from 'react-native';
 import { StyleSheet } from 'react-native'; 
 
 import Colors from '../constants/Colors';
