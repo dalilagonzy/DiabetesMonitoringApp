@@ -1,9 +1,8 @@
 import React, {useState} from 'react'
-import { StyleSheet, Image, TouchableOpacity, TextInput  } from 'react-native'
-import { Text, View, ScrollView } from '../components/Themed';
+import { StyleSheet, TextInput  } from 'react-native'
+import { Text, View } from '../components/Themed';
 import { TabFourParamList } from '../types';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { withTheme } from 'react-native-elements';
 
 type CoachInfoNavigationProps = StackNavigationProp<TabFourParamList, "CoachInfoScreen">;
 interface CoachInfoProps {

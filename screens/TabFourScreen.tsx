@@ -9,7 +9,7 @@ import CarouselCardItem, { SLIDER_WIDTH, ITEM_WIDTH } from '../components/carous
 import { Text, View, ScrollView } from '../components/Themed';
 import coaches from '../coaches';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { TabFourParamList, CoachParamList } from '../types';
+import { TabFourParamList } from '../types';
 import DropDownPicker from 'react-native-dropdown-picker';
 
 type TabFourNavigationProps = StackNavigationProp<TabFourParamList, "TabFourScreen">;

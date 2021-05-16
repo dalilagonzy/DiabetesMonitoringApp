@@ -11,15 +11,21 @@ import TabThreeScreen from '../screens/TabThreeScreen';
 import TabFourScreen from '../screens/TabFourScreen';
 import TabFiveScreen from '../screens/TabFiveScreen';
 import CoachInfoScreen from '../screens/CoachInfo';
-import { BottomTabParamList, TabOneParamList, TabTwoParamList, TabThreeParamList, TabFourParamList, TabFiveParamList } from '../types';
+import ProfileScreen from '../screens/ProfileScreen';
+import { BottomTabParamList, TabOneParamList, TabTwoParamList, TabThreeParamList, TabFourParamList, TabFiveParamList, ProfileScreenParamList } from '../types';
 
-import {Button} from 'react-native';
 import {AntDesign, MaterialIcons} from '@expo/vector-icons';
+import { StackNavigationProp } from '@react-navigation/stack';
 import Navigation from '.';
 import ExerciseChart from '../screens/ExerciseRecommendations';
 import ExerciseRecommendations from '../screens/ExerciseRecommendations';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
+
+type BottomTabNavigationProps = StackNavigationProp<BottomTabParamList, "Home">;
+interface BottomNavigationScreenProps {
+  navigation: BottomTabNavigationProps;
+}
 
 export default function BottomTabNavigator() {
   const colorScheme = useColorScheme();
@@ -72,6 +78,10 @@ export default function BottomTabNavigator() {
 // https://icons.expo.fyi/
 function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']; color: string }) {
   return <Ionicons size={30} style={{ marginBottom: -3 }} {...props} />;
+}
+
+function goToProfile() {
+
 }
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
@@ -134,6 +144,65 @@ function TabThreeNavigator() {
           <AntDesign name = 'user' size={20} color="white" onPress={() => alert('Profile pressed')}/>
         )
       }}
+      />
+      <TabThreeStack.Screen
+        name="TabOneScreen"
+        component={TabOneScreen}
+        options={{ 
+        title: 'Sugar Level Tracking',
+        headerStyle: {backgroundColor: '#E410A9'},
+        headerTintColor: '#fff',
+        headerRight: () => (
+          <AntDesign name = 'user' size={20} color="white" onPress={() => alert('Profile pressed')}/>
+        )
+      }}
+      />
+      <TabThreeStack.Screen
+        name="TabTwoScreen"
+        component={TabTwoScreen}
+        options={{ 
+        title: 'Food',
+        headerStyle: {backgroundColor: '#2D8931'},
+        headerTintColor: '#fff',
+        headerRight: () => (
+          <AntDesign name = 'user' size={20} color="white" onPress={() => alert('Profile pressed')}/>
+        )
+      }}
+      />
+      <TabThreeStack.Screen
+        name="TabFourScreen"
+        component={TabFourScreen}
+        options={{ title: 'Chat with a Coach',
+        headerStyle: {backgroundColor: '#51D0EC'},
+        headerTintColor: '#fff',
+        headerRight: () => (
+          <AntDesign name = 'user' size={20} color="white" onPress={() => alert('Profile pressed')}/>
+        ) 
+        }}
+      />
+      <TabThreeStack.Screen
+        name="TabFiveScreen"
+        component={TabFiveScreen}
+        options={{
+          title: 'Exercise',
+        headerStyle: {backgroundColor: '#9B00E3'},
+        headerTintColor: '#fff',
+        headerRight: () => (
+          <AntDesign name = 'user' size={20} color="white" onPress={() => alert('Profile pressed')}/>
+        ) 
+        }}
+      />
+      <TabThreeStack.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{
+          title: 'Profile',
+        headerStyle: {backgroundColor: '#9B00E3'},
+        headerTintColor: '#fff',
+        headerRight: () => (
+          <AntDesign name = 'user' size={20} color="white" onPress={() => alert('Profile pressed')}/>
+        ) 
+        }}
       />
     </TabThreeStack.Navigator>
   );
