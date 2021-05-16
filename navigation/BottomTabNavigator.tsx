@@ -16,6 +16,8 @@ import { BottomTabParamList, TabOneParamList, TabTwoParamList, TabThreeParamList
 import {Button} from 'react-native';
 import {AntDesign, MaterialIcons} from '@expo/vector-icons';
 import Navigation from '.';
+import ExerciseChart from '../screens/ExerciseRecommendations';
+import ExerciseRecommendations from '../screens/ExerciseRecommendations';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -185,6 +187,18 @@ function TabFiveNavigator() {
         headerRight: () => (
           <AntDesign name = 'user' size={20} color="white" onPress={() => alert('Profile pressed')}/>
         ) 
+        }}
+      />
+      <TabFiveStack.Screen
+        name="ExerciseRecommendationsScreen"
+        component={ExerciseRecommendations}
+        options={{
+          title: 'Recommendations',
+          headerStyle: {backgroundColor: '#9B00E3'},
+          headerTintColor: '#fff',
+          headerRight: () => (
+            <AntDesign name = 'user' size={20} color="white" onPress={() => alert('Profile pressed')}/>
+          ) 
         }}
       />
     </TabFiveStack.Navigator>

@@ -1,15 +1,25 @@
 import { RevealFromBottomAndroidSpec } from '@react-navigation/stack/lib/typescript/src/TransitionConfigs/TransitionSpecs';
 import * as React from 'react';
-import { StyleSheet, Button, Alert, TextInput } from 'react-native';
+import { StyleSheet, Button, Alert, TextInput, TouchableOpacity, Image } from 'react-native';
 import {useState} from 'react';
 import { initialWindowMetrics } from 'react-native-safe-area-context';
 
 import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
+import { Text, View, ScrollView } from '../components/Themed';
 
-import{Input} from 'react-native-elements';
+import DropDownPicker from 'react-native-dropdown-picker';
+import { TabFiveParamList } from '../types';
+import { StackNavigationProp } from '@react-navigation/stack';
 
-export default function TabFiveScreen() {
+type TabFiveNavigationProps = StackNavigationProp<TabFiveParamList, "TabFiveScreen">;
+interface TabFiveScreenProps {
+  navigation: TabFiveNavigationProps;
+}
+
+var coach:string;
+
+const TabFiveScreen: React.FunctionComponent<TabFiveScreenProps> = (props) => {
+  const { navigation } = props
   const [time, setTime] = useState('00:00');
   const [description, setDescription] = useState('optional');
 
@@ -26,9 +36,7 @@ export default function TabFiveScreen() {
         placeholder=''
         onChangeText={(val) => setTime(val)}/>
 
-      <View style={styles.miniSeparator} />
-
-      <View style={styles.containerForButtons}>
+ {/*      <View style={styles.containerForButtons}>
         <Button
           title="Easy"
           color="#DA8EFF"
@@ -44,7 +52,7 @@ export default function TabFiveScreen() {
           color="#DA8EFF"
           onPress={() => Alert.alert('Hard pressed')}
         />
-      </View>
+      </View> */}
   
       <View style={styles.miniSeparator} />
 
@@ -59,8 +67,20 @@ export default function TabFiveScreen() {
         color="#DA8EFF"
         onPress={() => Alert.alert('Save button pressed')}
       />
+
+      <Image
+        style={styles.stretch}
+        source={require('../constants/Chart-Static.png')}
+      />
+
+      <View style={styles.miniSeparator} />
+
+      <TouchableOpacity 
+        onPress={() => { navigation.navigate("ExerciseRecommendationsScreen") }}
+      >
+        <Text>Click for Exercise Suggestions!</Text>
+      </TouchableOpacity>
      
-      <EditScreenInfo path="/screens/TabFiveScreen.tsx" />
     </View>
   );
 }
@@ -94,7 +114,7 @@ const styles = StyleSheet.create({
     padding: 8,
     width: 300,
     margin: 10,
-    height: 130,
+    height: 100,
   },
 
   timeInputText: {
@@ -110,7 +130,7 @@ const styles = StyleSheet.create({
   },
 
   separator: {
-    marginVertical: 30,
+    marginVertical: 20,
     width: '80%',
   },
 
@@ -126,7 +146,12 @@ const styles = StyleSheet.create({
     width: '80%',
   },
 
- 
+  stretch: {
+    width: 300,
+    height: 200,
+    resizeMode: 'stretch',
+  },
 });
 
 
+export default TabFiveScreen

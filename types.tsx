@@ -31,6 +31,7 @@ export type TabFourParamList = {
 
 export type TabFiveParamList = {
   TabFiveScreen: undefined;
+  ExerciseRecommendationsScreen: undefined;
 };
 
 export type CoachParamList = {
@@ -38,3 +39,5 @@ export type CoachParamList = {
   body: string;
   imgUrl: string;
 }
+
+
