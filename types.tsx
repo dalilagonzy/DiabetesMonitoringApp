@@ -9,7 +9,6 @@ export type BottomTabParamList = {
   Home: undefined;
   Coach: undefined;
   Exercise: undefined;
-  CoachInfo: undefined;
 };
 
 export type TabOneParamList = {
@@ -22,6 +21,11 @@ export type TabTwoParamList = {
 
 export type TabThreeParamList = {
   TabThreeScreen: undefined;
+  TabOneScreen: undefined;
+  TabTwoScreen: undefined;
+  TabFourScreen: undefined;
+  TabFiveScreen: undefined;
+  ProfileScreen: undefined
 };
 
 export type TabFourParamList = {
@@ -37,4 +41,8 @@ export type CoachParamList = {
   name: string;
   body: string;
   imgUrl: string;
-}
+};
+
+export type ProfileScreenParamList = {
+  ProfileScreen: undefined;
+};

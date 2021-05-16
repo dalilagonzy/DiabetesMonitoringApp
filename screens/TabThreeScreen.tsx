@@ -4,32 +4,39 @@
 // and represent the page colors
 
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { TabThreeParamList } from '../types';
 import { Text, View } from '../components/Themed';
 
-export default function TabThreeScreen() {
+type TabThreeNavigationProps = StackNavigationProp<TabThreeParamList, "TabThreeScreen">;
+interface TabThreeScreenProps {
+  navigation: TabThreeNavigationProps;
+}
+
+const TabThreeScreen: React.FunctionComponent<TabThreeScreenProps> = (props) => {
+  const { navigation } = props
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to the Home Page!</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       
-      <View style={styles.PinkCircleShapeView}>
+      <TouchableOpacity style={styles.PinkCircleShapeView} onPress={() => { navigation.navigate("TabOneScreen") }}>
         <Text style={styles.tracking}>Sugar Level {'\n'}Tracking</Text>
-      </View>
-      <View style={styles.CyanCircleShapeView}>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.CyanCircleShapeView} onPress={() => { navigation.navigate("TabFourScreen") }}>
         <Text style={styles.tracking}>Coach{'\n'}Page</Text>
-      </View>
-      <View style={styles.PurpleCircleShapeView}>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.PurpleCircleShapeView} onPress={() => { navigation.navigate("TabFiveScreen") }}>
         <Text style={styles.tracking}>Exercise {'\n'}Tracking</Text>
-      </View>
-      <View style={styles.GrayCircleShapeView}>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.GrayCircleShapeView} onPress={() => { navigation.navigate("ProfileScreen") }}>
         <Text style={styles.tracking}>Your {'\n'}Profile</Text>
-      </View>
-      <View style={styles.GreenCircleShapeView}>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.GreenCircleShapeView} onPress={() => { navigation.navigate("TabTwoScreen") }}>
         <Text style={styles.tracking}>Food {'\n'}Tracking</Text>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -106,3 +113,5 @@ const styles = StyleSheet.create({
     left: 20,
   }
 });
+
+export default TabThreeScreen;
